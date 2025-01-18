@@ -1,13 +1,16 @@
 {
-    "name": "reactjs-vite-tailwind-vercel",
+    "name": "reactjs-vite-tailwind-electron",
     "version": "1.0.0",
-    "description": "ReactJS app with Vite, Tailwind",
+    "description": "ReactJS app with Vite, Tailwind, packaged with Electron",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
         "serve": "vite preview",
-        "start": "vite --host"
+        "start": "vite --host",
+        "start-electron": "electron electron/main.js",
+        "electron:dev": "concurrently \"vite\" \"electron electron/main.js\"",
+        "electron:build": "vite build && electron-builder"
     },
     "dependencies": {
         "@sentry/browser": "^8.41.0",
@@ -20,6 +23,9 @@
         "postcss": "^8.4.47",
         "tailwindcss": "^3.4.13",
         "vite": "^5.4.7",
-        "@sentry/vite-plugin": "^2.23.0"
+        "@sentry/vite-plugin": "^2.23.0",
+        "electron": "^26.2.0",
+        "electron-builder": "^24.6.2",
+        "concurrently": "^7.3.0"
     }
 }
